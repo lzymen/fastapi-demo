@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# FastAPI Demo 启动脚本
+
+echo "启动 FastAPI Demo..."
+
+# 检查是否安装了 uv
+if command -v uv &> /dev/null; then
+    echo "使用 uv 启动..."
+    uv run uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+else
+    echo "使用 python 启动..."
+    python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+fi
